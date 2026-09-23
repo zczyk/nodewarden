@@ -2,18 +2,20 @@
 @import './styles/base.css';
 @import './styles/auth.css';
 @import './styles/forms.css';
+@import './styles/generator.css';
+@import './styles/password-security.css';
 @import './styles/shell.css';
 @import './styles/vault.css';
 @import './styles/management.css';
 @import './styles/overlays.css';
 @import './styles/motion.css';
+@import './styles/skeleton.css';
 @import './styles/responsive.css';
 @import './styles/dark.css';
 
 /* Unified product polish: refined, smooth, comfortable surfaces across desktop, mobile, and dark mode. */
 
 /* ── surface consistency ── */
-.app-shell,
 .auth-card,
 .dialog-card,
 .card,
@@ -33,12 +35,6 @@
   border-radius: var(--radius-lg);
   background: var(--panel);
   box-shadow: var(--shadow-sm);
-}
-
-.app-shell {
-  background: var(--panel-soft);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
 }
 
 .topbar,
@@ -103,7 +99,6 @@
 }
 
 /* ── dark mode surface resets ── */
-:root[data-theme='dark'] .app-shell,
 :root[data-theme='dark'] .auth-card,
 :root[data-theme='dark'] .dialog-card,
 :root[data-theme='dark'] .card,
@@ -258,17 +253,6 @@ h4 {
   letter-spacing: 0;
 }
 
-.app-page {
-  padding: 18px;
-}
-
-.app-shell {
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--line);
-  background: var(--panel);
-  box-shadow: var(--shadow-lg);
-}
-
 .topbar {
   height: 56px;
   padding-inline: 16px;
@@ -315,7 +299,7 @@ h4 {
 }
 
 .app-main {
-  grid-template-columns: 212px minmax(0, 1fr);
+  grid-template-columns: 240px minmax(0, 1fr);
   background: var(--panel-soft);
 }
 
@@ -440,6 +424,48 @@ h4 {
 
 .auth-card {
   padding: 24px;
+}
+
+.settings-home-card {
+  min-height: min(640px, calc(100dvh - 180px));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-home-section {
+  display: grid;
+  gap: 10px;
+}
+
+.settings-home-section h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--font-md);
+}
+
+.settings-home-spacer {
+  flex: 1;
+  min-height: 4px;
+}
+
+.mobile-settings-links {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.mobile-settings-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .auth-card h1,
@@ -595,7 +621,7 @@ h4 {
 }
 
 .list-head {
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .list-count {
@@ -651,7 +677,7 @@ h4 {
 }
 
 .card {
-  margin-bottom: 8px;
+  margin-bottom: 10;
   padding: 14px;
 }
 
@@ -809,6 +835,101 @@ h4 {
   background: transparent;
 }
 
+/* Typography refinement: stronger scan targets for dense vault/admin surfaces. */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-base);
+  font-weight: 400;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.side-link,
+.side-group-trigger,
+.side-sub-link,
+.tree-btn,
+.mobile-settings-link,
+.backup-destination-item,
+.backup-browser-entry,
+.sort-menu-item,
+.create-menu-item,
+.nav-layout-option {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.side-link.active,
+.side-group-trigger.active,
+.side-sub-link.active,
+.tree-btn.active,
+.mobile-tab.active,
+.mobile-settings-link.active,
+.nav-layout-option.active {
+  font-weight: 700;
+}
+
+.sidebar-title,
+.list-count,
+.field > span,
+.table th,
+.dialog-warning-kicker,
+.backup-recommendation-group-title {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.list-title {
+  color: var(--text);
+  font-size: var(--font-base);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.list-sub,
+.detail-sub,
+.backup-destination-meta,
+.totp-code-username,
+.field-help,
+.settings-field-note {
+  font-size: var(--font-sm);
+  line-height: var(--leading-snug);
+}
+
+.btn,
+.input,
+.search-input,
+.user-chip,
+.network-status-badge {
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.btn-primary,
+.btn-danger,
+.btn.full,
+.topbar-actions .btn,
+.network-status-badge {
+  font-weight: 700;
+}
+
+.card h4,
+.settings-module h3,
+.section-head h3,
+.section-head h4,
+.detail-title,
+.totp-code-name,
+.backup-destination-name,
+.mobile-sidebar-title {
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
 .toast-item,
 .dialog-card {
   border-radius: var(--radius-lg);
@@ -820,7 +941,6 @@ h4 {
   background: var(--bg-accent);
 }
 
-:root[data-theme='dark'] .app-shell,
 :root[data-theme='dark'] .topbar,
 :root[data-theme='dark'] .app-side,
 :root[data-theme='dark'] .mobile-tabbar,
@@ -973,6 +1093,7 @@ h4 {
   .list-panel {
     padding: 6px;
     border-radius: var(--radius-md);
+    margin-top: 5px;
   }
 
   .list-item {
